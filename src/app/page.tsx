@@ -21,8 +21,8 @@ export default function Page() {
 
   return (
     <main className="">
-      <div className="container mx-auto p-2">
-        <div className="container">
+      <div className="container mx-auto p-1 bg-amber-200">
+        <div className="flex bg-amber-300">
           <button className=""
             onClick={handleSubmit}
             >
@@ -32,22 +32,24 @@ export default function Page() {
           <input type="text"
             id="data-url"
             name="data-url"
-            className="m-3"
+            className="m-3 bg-amber-400"
             value={workingUrl}
             placeholder="Enter URL to Dataset"
             onChange={(e) => {setWorkingUrl(e.target.value)}}
             ></input>
         </div>
-        <table className="">
-          <thead>
-            <DataHeaderRow data={data}/>
-          </thead>
-          <tbody className="">
-            {data.map((r, i) => (
-              <DataRowMemo key={ r.id ? r.id : Date.now() * i } row={r}/>
-            ))}
-          </tbody>
-        </table>
+        <div>
+          <table className="bg-amber-400">
+            <thead>
+              <DataHeaderRow data={data}/>
+            </thead>
+            <tbody className="">
+              {data.map((r, i) => (
+                <DataRowMemo key={ r.id ? r.id : Date.now() * i } row={r}/>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </main>
   )
