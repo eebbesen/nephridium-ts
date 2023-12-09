@@ -21,14 +21,13 @@ export default function Page() {
 
   return (
     <main className="mx-auto p-1 bg-amber-200">
-      <div className="">
+      <div className="" id="search-components">
         <div className="flex bg-amber-300">
           <button className=""
             onClick={handleSubmit}
             >
             Add Data
           </button>
-          <label htmlFor="data-url"></label>
           <input type="text"
             id="data-url"
             name="data-url"
@@ -39,9 +38,9 @@ export default function Page() {
             ></input>
         </div>
         <fieldset className="flex">
-          <div className="py-3 bg-amber-600">
+          <div className="py-3 bg-amber-600 grow">
             <div className="flex gap-4">
-              <legend className="block">
+              <legend className="">
                 Vendor
               </legend>
               <div className="flex items-center">
@@ -53,7 +52,7 @@ export default function Page() {
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                   aria-describedby='datasource-type-error'
                 />
-                <label htmlFor="arcgis" className="px-3 block text-sm font-medium">
+                <label htmlFor="arcgis" className="px-3 text-sm font-medium">
                   ArcGIS
                 </label>
               </div>
@@ -66,7 +65,7 @@ export default function Page() {
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
                   aria-describedby='datasource-type-error'
                 />
-                <label htmlFor="socrata" className="px-3 block text-sm font-medium">
+                <label htmlFor="socrata" className="px-3 text-sm font-medium">
                   Socrata
                 </label>
               </div>
@@ -76,7 +75,7 @@ export default function Page() {
       </div>
 
 
-      <div>
+      <div id="data-table">
         <table className="bg-amber-400">
           <thead>
             <DataHeaderRow data={data}/>
