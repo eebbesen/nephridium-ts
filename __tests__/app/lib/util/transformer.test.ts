@@ -1,4 +1,4 @@
-const transformer = require('../../../../src/app/lib/helpers/transformer')
+const transformer = require('../../../../src/app/lib/util/transformer')
 
 describe('formatColumnName', () => {
   it('transforms underscores to spaces', () => {
