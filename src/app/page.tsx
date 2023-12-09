@@ -22,7 +22,7 @@ export default function Page() {
   return (
     <main className="mx-auto p-1">
       <div id="search-components" className="space-y-3">
-        <div id="search-url" className="grid grid-cols-9 gap-2">
+        <div id="search-url" className="grid md:grid-cols-9 sm:grid-cols-2 gap-2">
           <button className="col-start-1 col-end-2 rounded-md bg-blue-500 px-4 py-2 text-white transition-colors hover:bg-blue-400"
             onClick={handleSubmit}
             >
@@ -39,7 +39,7 @@ export default function Page() {
         </div>
         <fieldset id="search-source">
           <div>
-            <div className="grid grid-cols-9">
+            <div className="grid lg:grid-cols-9 md:grid-cols-6 sm:grid-cols-3 justify-center">
               <legend className="col-start-1 col-end-2 text-center">
                 Vendor
               </legend>
