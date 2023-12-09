@@ -21,7 +21,7 @@ export default function Page() {
 
   return (
     <main className="">
-      <div className="container mx-auto p-1 bg-amber-200">
+      <div className="mx-auto p-1 bg-amber-200">
         <div className="flex bg-amber-300">
           <button className=""
             onClick={handleSubmit}
@@ -32,7 +32,7 @@ export default function Page() {
           <input type="text"
             id="data-url"
             name="data-url"
-            className="m-3 bg-amber-400"
+            className="grow m-3 bg-amber-400"
             value={workingUrl}
             placeholder="Enter URL to Dataset"
             onChange={(e) => {setWorkingUrl(e.target.value)}}
