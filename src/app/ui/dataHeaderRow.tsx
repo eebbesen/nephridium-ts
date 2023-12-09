@@ -5,7 +5,7 @@ export default function DataHeaderRow({ data }: any) {
   return (
     <tr key={keySlug}>
       {keys.map((k) => (
-        <th key={`${keySlug}${k}`}>{k}</th>
+        <th className="ps-1 pe-1" key={`${keySlug}${k}`}>{k}</th>
       ))}
     </tr>
   )

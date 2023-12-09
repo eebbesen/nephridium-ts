@@ -75,8 +75,8 @@ export default function Page() {
       </div>
       <hr></hr>
       <div id="data-table" className="relative overflow-x-auto sm:rounded-sm w-full">
-        <table className="md:table border-2 border-black-300 border-separate ">
-          <thead className="uppercase text-xs font-bold bg-blue-300 ">
+        <table className="md:table border-separate ">
+          <thead className="uppercase text-xs font-bold bg-blue-300">
             <DataHeaderRow data={data}/>
           </thead>
           <tbody className="text-xs align-text-top">
