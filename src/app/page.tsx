@@ -21,9 +21,9 @@ export default function Page() {
 
   return (
     <main className="mx-auto p-1">
-      <div id="search-components" className="space-y-1">
-        <div id="search-url" className="grid grid-cols-9">
-          <button className="col-start-1 col-end-2"
+      <div id="search-components" className="space-y-3">
+        <div id="search-url" className="grid grid-cols-9 gap-2">
+          <button className="col-start-1 col-end-2 rounded-md bg-blue-500 px-4 py-2 text-white transition-colors hover:bg-blue-400"
             onClick={handleSubmit}
             >
             Add Data
