@@ -76,7 +76,7 @@ export default function Page() {
 
 
       <div id="data-table">
-        <table className="bg-amber-400">
+        <table className="table-auto bg-amber-400">
           <thead>
             <DataHeaderRow data={data}/>
           </thead>
