@@ -21,9 +21,9 @@ export default function Page() {
 
   return (
     <main className="mx-auto p-1 bg-amber-200">
-      <div className="" id="search-components">
-        <div className="flex bg-amber-300">
-          <button className=""
+      <div id="search-components">
+        <div id="search-url" className="bg-amber-300 grid grid-cols-9">
+          <button className="col-start-1 col-end-2"
             onClick={handleSubmit}
             >
             Add Data
@@ -31,19 +31,19 @@ export default function Page() {
           <input type="text"
             id="data-url"
             name="data-url"
-            className="grow m-3 bg-amber-400"
+            className="bg-amber-400 col-start-2 col-end-10"
             value={workingUrl}
             placeholder="Enter URL to Dataset"
             onChange={(e) => {setWorkingUrl(e.target.value)}}
             ></input>
         </div>
-        <fieldset className="flex">
-          <div className="py-3 bg-amber-600 grow">
-            <div className="flex gap-4">
-              <legend className="">
+        <fieldset id="search-source">
+          <div className="bg-amber-600">
+            <div className=" gap-4 grid grid-cols-9">
+              <legend className="col-start-1 col-end-2 text-center">
                 Vendor
               </legend>
-              <div className="flex items-center">
+              <div className=" items-center">
                 <input
                   id="arcgis"
                   name="datasource-type"
@@ -56,7 +56,7 @@ export default function Page() {
                   ArcGIS
                 </label>
               </div>
-              <div className="flex items-center">
+              <div className=" items-center">
                 <input
                   id="soctrata"
                   name="datasource-type"
