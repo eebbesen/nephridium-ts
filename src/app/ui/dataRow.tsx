@@ -9,14 +9,16 @@ function cleaner(input: any) {
   return `*${type}*`
 }
 
-export default function DataRow({row}: any) {
+export default function DataRow({ row }: any) {
   const keys = Object.keys(row)
   const key = row.id ? row.id : Date.now()
 
   return (
-    <tr className="even:bg-gray-200 odd:bg-white" key={key}>
+    <tr className="odd:bg-white even:bg-gray-200" key={key}>
       {Object.keys(row).map((k, i) => (
-        <td className="ps-1 pe-1" key={`${key}${i}`}>{cleaner(row[k])}</td>
+        <td className="pe-1 ps-1" key={`${key}${i}`}>
+          {cleaner(row[k])}
+        </td>
       ))}
     </tr>
   )
