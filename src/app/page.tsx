@@ -4,8 +4,8 @@ import { useState } from 'react'
 import LoadingIndicator from './ui/loadingIndicator'
 import { loadingStatus } from './ui/loadingStatus'
 import useDataRequests from './lib/hooks/useDataRequests'
-import DataHeaderRow from './ui/dataHeaderRow'
-import { DataRowMemo } from './ui/dataRow'
+import Vendor from './ui/vendor'
+import DataTable from './ui/dataTable'
 
 const { findMaximumKeys } = require('./lib/util/helper')
 
@@ -49,56 +49,19 @@ export default function Page() {
         </div>
         <fieldset id="search-source">
           <div>
-            <div className="grid justify-center sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-9">
+            <div className="grid justify-center sm:grid-cols-4 lg:grid-cols-9">
               <legend className="col-start-1 col-end-2 text-center">
                 Vendor
               </legend>
-              <div className="items-center">
-                <input
-                  id="arcgis"
-                  name="datasource-type"
-                  type="radio"
-                  value="arcgis"
-                  className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
-                  aria-describedby="datasource-type-error"
-                />
-                <label htmlFor="arcgis" className="px-3 text-sm font-medium">
-                  ArcGIS
-                </label>
-              </div>
-              <div className="items-center">
-                <input
-                  id="soctrata"
-                  name="datasource-type"
-                  type="radio"
-                  value="socrata"
-                  className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
-                  aria-describedby="datasource-type-error"
-                />
-                <label htmlFor="socrata" className="px-3 text-sm font-medium">
-                  Socrata
-                </label>
-              </div>
+              <Vendor vendor={'ArcGIS'} />
+              <Vendor vendor={'Socrata'} />
+              <Vendor vendor={'Raw'} />
             </div>
           </div>
         </fieldset>
       </div>
       <hr></hr>
-      <div
-        id="data-table"
-        className="relative w-full overflow-x-auto sm:rounded-sm"
-      >
-        <table className="border-separate md:table ">
-          <thead className="bg-blue-300 text-xs font-bold uppercase">
-            <DataHeaderRow columns={columns} />
-          </thead>
-          <tbody className="align-text-top text-xs">
-            {data.map((r, i) => (
-              <DataRowMemo key={r['id'] ? r['id'] : Date.now() * i} row={r} data={data} columns={columns} />
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <DataTable data={data} columns={columns} />
     </main>
   )
 }
