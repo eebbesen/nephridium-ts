@@ -11,3 +11,19 @@ describe('formatColumnName', () => {
     expect(transformer.transform('COL*NAME')).toEqual('COL*NAME')
   })
 })
+
+describe('cleaner', () => {
+  it('returns string | number input', () => {
+    expect(transformer.cleaner(77)).toBe(77)
+    expect(transformer.cleaner('84bu9')).toBe('84bu9')
+  })
+
+  it('returns *object* for object input', () => {
+    expect(transformer.cleaner({k: "v"})).toEqual('*object*')
+  })
+
+  it('returns empty string for undefined | null input', () => {
+    expect(transformer.cleaner(null)).toBe('')
+    expect(transformer.cleaner(undefined)).toEqual('')
+  })
+})

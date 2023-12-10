@@ -1,22 +1,17 @@
 import React from 'react'
+import { cleaner } from '../lib/util/transformer'
 
-function cleaner(input: any) {
-  const type = typeof input
-  if (type === 'string' || type === 'number') {
-    return input
+export default function DataRow({ row, columns }: any) {
+  if (columns === null || columns === undefined) {
+    return (<></>)
   }
 
-  return `*${type}*`
-}
-
-export default function DataRow({ row }: any) {
-  const keys = Object.keys(row)
   const key = row.id ? row.id : Date.now()
 
   return (
     <tr className="odd:bg-white even:bg-gray-200" key={key}>
-      {Object.keys(row).map((k, i) => (
-        <td className="pe-1 ps-1" key={`${key}${i}`}>
+      {columns.map((k: string | number, i: number) => (
+        <td className="pe-1 ps-1" key={`${key}`}>
           {cleaner(row[k])}
         </td>
       ))}

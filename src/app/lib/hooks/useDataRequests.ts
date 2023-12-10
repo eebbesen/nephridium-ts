@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import useGetRequst from './useGetRequests'
 
 export default function useDataRequests() {
-  const [data, setData] = useState([{ id: 'No data yet' }])
+  const [data, setData] = useState([])
   const [url, setUrl] = useState('')
   const { get, loadingState } = useGetRequst(url)
 

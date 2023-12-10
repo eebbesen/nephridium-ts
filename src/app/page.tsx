@@ -7,9 +7,12 @@ import useDataRequests from './lib/hooks/useDataRequests'
 import DataHeaderRow from './ui/dataHeaderRow'
 import { DataRowMemo } from './ui/dataRow'
 
+const { findMaximumKeys } = require('./lib/util/helper')
+
 export default function Page() {
   const { data, url, setUrl, loadingState } = useDataRequests()
   const [workingUrl, setWorkingUrl] = useState('')
+  const columns = findMaximumKeys(data)
 
   function handleSubmit() {
     setUrl(workingUrl)
@@ -87,11 +90,11 @@ export default function Page() {
       >
         <table className="border-separate md:table ">
           <thead className="bg-blue-300 text-xs font-bold uppercase">
-            <DataHeaderRow data={data} />
+            <DataHeaderRow columns={columns} />
           </thead>
           <tbody className="align-text-top text-xs">
             {data.map((r, i) => (
-              <DataRowMemo key={r.id ? r.id : Date.now() * i} row={r} />
+              <DataRowMemo key={r['id'] ? r['id'] : Date.now() * i} row={r} data={data} columns={columns} />
             ))}
           </tbody>
         </table>
