@@ -1,3 +1,5 @@
 export default function LoadingIndicator({ loadingState }: any) {
-  return <h3>{loadingState}</h3>
+  return (
+    <div className="text-center text-5xl text-green-600">{loadingState}</div>
+  )
 }

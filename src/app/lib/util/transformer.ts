@@ -17,3 +17,12 @@ export const cleaner = (input: any) => {
 
   return `*${type}*`
 }
+
+export const truncate = (target: string): string => {
+  let ret: string = target.substring(0, 73)
+  if (ret.length < target.length) {
+    ret = `${ret}...`
+  }
+
+  return ret
+}
