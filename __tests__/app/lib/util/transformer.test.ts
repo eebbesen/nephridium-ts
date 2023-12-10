@@ -27,3 +27,16 @@ describe('cleaner', () => {
     expect(transformer.cleaner(undefined)).toEqual('')
   })
 })
+
+describe('truncate', () => {
+  it ('truncates with ellipses', () => {
+    const input: string = 'INTERIOR OF BUILDING - NO RESPONSE, UNABLE TO VERFY DETECTORS AND OCCUPANCY.'
+    const expected: string = 'INTERIOR OF BUILDING - NO RESPONSE, UNABLE TO VERFY DETECTORS AND OCCUPAN...'
+    expect(transformer.truncate(input)).toEqual(expected)
+  })
+
+  it ('does not truncate when string is shorter than 73', () => {
+    const input: string = 'INTERIOR OF BUILDING - NO RESPONSE, UNABLE TO VERFY DETECTORS AND'
+    expect(transformer.truncate(input)).toEqual(input)
+  })
+})
