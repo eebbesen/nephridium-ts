@@ -30,5 +30,7 @@ jobs:
         run: npm install
       - name: Build with Next.js
         run: npm run build
-      - name: Run tests
+      - name: Run lint
         run: npm run lint
+      - name: Run tests
+        run: npm run test
