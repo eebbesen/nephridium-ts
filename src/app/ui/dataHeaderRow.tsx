@@ -1,11 +1,14 @@
-export default function DataHeaderRow({ data }: any) {
-  const keys = Object.keys(data[0])
+const transformer = require('../lib/util/transformer')
+
+export default function DataHeaderRow({ columns }: any) {
   const keySlug = Date.now()
 
   return (
     <tr key={keySlug}>
-      {keys.map((k) => (
-        <th className="ps-1 pe-1" key={`${keySlug}${k}`}>{k}</th>
+      {columns.map((c: string) => (
+        <th className="pe-1 ps-1" key={`${keySlug}${c}`}>
+          {transformer.transform(c)}
+        </th>
       ))}
     </tr>
   )
