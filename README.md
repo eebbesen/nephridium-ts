@@ -2,6 +2,8 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Favicon from https://commons.wikimedia.org/wiki/File:Oversimplification_Fallacy_Icon.png
+
 ## Getting Started
 
 First, run the development server:
@@ -15,6 +17,14 @@ pnpm dev
 # or
 bun dev
 ```
+
+## Test
+
+```bash
+npm run test
+```
+
+Use https://www.w3.org/TR/html-aria/#docconformance to map HTMLElements to their ARIA roles.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
