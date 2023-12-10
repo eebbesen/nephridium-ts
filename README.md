@@ -2,6 +2,8 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Favicon from https://commons.wikimedia.org/wiki/File:Oversimplification_Fallacy_Icon.png
+
 ## Getting Started
 
 First, run the development server:
