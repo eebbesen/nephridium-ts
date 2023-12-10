@@ -3,7 +3,7 @@ import { cleaner } from '../lib/util/transformer'
 
 export default function DataRow({ row, columns }: any) {
   if (columns === null || columns === undefined) {
-    return (<></>)
+    return <></>
   }
 
   const key = row.id ? row.id : Date.now()

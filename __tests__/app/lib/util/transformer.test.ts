@@ -19,7 +19,7 @@ describe('cleaner', () => {
   })
 
   it('returns *object* for object input', () => {
-    expect(transformer.cleaner({k: "v"})).toEqual('*object*')
+    expect(transformer.cleaner({ k: 'v' })).toEqual('*object*')
   })
 
   it('returns empty string for undefined | null input', () => {
