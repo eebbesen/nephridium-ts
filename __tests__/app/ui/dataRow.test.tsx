@@ -17,7 +17,7 @@ describe('DataRow', () => {
   it('renders row', () => {
     render(
       <DataRow
-        row={{ id: '23', address: '1600 Grand Ave' }}
+        row={{ id: '24', address: '1600 Grand Ave' }}
         columns={['id', 'address']}
       />,
     )
@@ -25,7 +25,7 @@ describe('DataRow', () => {
     const row = screen.getByRole('row')
 
     expect(row.children.length).toBe(2)
-    expect(row.children[0].textContent).toEqual('23')
+    expect(row.children[0].textContent).toEqual('24')
     expect(row.children[1].textContent).toEqual('1600 Grand Ave')
   })
 

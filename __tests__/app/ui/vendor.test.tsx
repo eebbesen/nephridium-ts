@@ -3,7 +3,7 @@ import Vendor from '../../../src/app/ui/vendor'
 import '@testing-library/jest-dom'
 
 describe('Vendor', () => {
-  it('renders search components', () => {
+  it('renders component', () => {
     render(<Vendor vendor={'Humegatech'} />)
 
     const radioButton = screen.getByRole('radio')
