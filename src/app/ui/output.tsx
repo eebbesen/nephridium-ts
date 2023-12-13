@@ -3,20 +3,23 @@ import { stripParams } from '../lib/util/transformer'
 export default function Output({
   columns,
   selected,
+  selectedDateColumn,
   url,
 }: {
   columns: string[]
   selected: string[]
+  selectedDateColumn: string
   url: string
 }) {
   const toRemove = columns
     .filter((c: string) => !selected.includes(c))
     .join(',')
+  const timeColumn = selectedDateColumn
   const transformedUrl = stripParams(url)
   const ouputUrl =
-    toRemove.length > 0
-      ? `toRemove=${toRemove}&url=${transformedUrl}`
-      : `&url=${transformedUrl}`
+    (timeColumn?.length > 0 ? `&time_column=${timeColumn}` : '') +
+    (toRemove.length > 0 ? `&toRemove=${toRemove}` : '') +
+    `&url=${transformedUrl}`
 
   return (
     <div className="overflow-auto text-sm">

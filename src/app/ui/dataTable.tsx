@@ -6,6 +6,7 @@ import DateColumnSelect from './dateColumnSelect'
 
 export default function DataTable({ data, columns, url }: any) {
   const [selected, setSelected] = useState(columns.slice())
+  const [selectedDateColumn, setSelectedDateColumn] = useState('')
 
   // todo: consider a ref here
   const toggleAll = () => {
@@ -20,7 +21,12 @@ export default function DataTable({ data, columns, url }: any) {
     <>
       <div id="output" className="grid gap-2 sm:grid-cols-2 md:grid-cols-9">
         <div className="col-start-1 col-end-10">
-          <Output columns={columns} selected={selected} url={url} />
+          <Output
+            columns={columns}
+            selected={selected}
+            selectedDateColumn={selectedDateColumn}
+            url={url}
+          />
         </div>
       </div>
       <div
@@ -35,7 +41,11 @@ export default function DataTable({ data, columns, url }: any) {
         >
           {selected.length > 0 ? 'Deselect All' : 'Select All'}
         </button>
-        <DateColumnSelect selected={selected} />
+        <DateColumnSelect
+          selected={selected}
+          selectedDateColumn={selectedDateColumn}
+          setSelectedDateColumn={setSelectedDateColumn}
+        />
       </div>
       <div
         id="data-table"
