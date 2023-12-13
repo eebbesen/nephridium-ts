@@ -18,7 +18,7 @@ export default function Output({
   const transformedUrl = stripParams(url)
   const ouputUrl =
     (timeColumn?.length > 0 ? `&time_column=${timeColumn}` : '') +
-    (toRemove.length > 0 ? `&toRemove=${toRemove}` : '') +
+    (toRemove.length > 0 ? `&to_remove=${toRemove}` : '') +
     `&url=${transformedUrl}`
 
   return (
