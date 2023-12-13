@@ -1,4 +1,8 @@
-# nephridium
+# nephridium-ts
+This is an experimental app to help users build URLs for https://github.com/eebbesen/nephridium.
+
+Functionality is incomplete but it still may be of use for generating the Nephridium URL params.
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -25,6 +29,7 @@ npm run test
 ```
 
 Use https://www.w3.org/TR/html-aria/#docconformance to map HTMLElements to their ARIA roles.
+https://testing-library.com/docs/queries/about/#byrole has more specific information to React.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

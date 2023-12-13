@@ -26,3 +26,15 @@ export const truncate = (target: string): string => {
 
   return ret
 }
+
+export const stripParams = (target: string): string => {
+  if (target === undefined || target === null) {
+    return ''
+  }
+
+  if (target.indexOf('?') < 0) {
+    return target
+  }
+
+  return target.substring(0, target.indexOf('?'))
+}
