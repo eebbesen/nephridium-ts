@@ -11,8 +11,7 @@ export default function DataRow({ row, columns }: any) {
   return (
     <tr className="odd:bg-white even:bg-gray-200" key={`${key}`}>
       {columns.map((k: string | number, i: number) => (
-        // eslint-disable-next-line react/jsx-key
-        <td className="pe-1 ps-1">
+        <td className="pe-1 ps-1" key={`${row[k]}${key}${i}`}>
           {truncate(cleaner(row[k]))}
         </td>
       ))}

@@ -1,9 +1,9 @@
+import { useState } from 'react'
 import DataHeaderRow from './dataHeaderRow'
 import { DataRowMemo } from './dataRow'
 
-export default function DataTable(props: any) {
-  const data = props.data
-  const columns = props.columns
+export default function DataTable({data, columns}: any) {
+  const [selected, setSelected] = useState([])
 
   return (
     <div
@@ -12,7 +12,10 @@ export default function DataTable(props: any) {
     >
       <table className="border-separate md:table ">
         <thead className="bg-blue-300 text-xs font-bold uppercase">
-          <DataHeaderRow columns={columns} />
+          <DataHeaderRow
+            columns={columns}
+            selected={selected}
+            setSelected={setSelected} />
         </thead>
         <tbody className="align-text-top text-xs">
           {data.map((r: any, i: number) => (
