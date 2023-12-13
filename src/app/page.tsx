@@ -26,12 +26,15 @@ export default function Page() {
         setWorkingUrl={setWorkingUrl}
       />
       <hr></hr>
-      {url.length > 0 ?
-        (loadingState !== loadingStatus.loaded ?
-          <LoadingIndicator loadingState={loadingState} /> :
-          <DataTable data={data} columns={columns} url={url} />) :
+      {url.length > 0 ? (
+        loadingState !== loadingStatus.loaded ? (
+          <LoadingIndicator loadingState={loadingState} />
+        ) : (
+          <DataTable data={data} columns={columns} url={url} />
+        )
+      ) : (
         <></>
-      }
+      )}
     </main>
   )
 }

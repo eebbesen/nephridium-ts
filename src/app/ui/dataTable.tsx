@@ -2,9 +2,10 @@ import { useState } from 'react'
 import DataHeaderRow from './dataHeaderRow'
 import { DataRowMemo } from './dataRow'
 import Output from './output'
+import DateColumnSelect from './dateColumnSelect'
 
 export default function DataTable({ data, columns, url }: any) {
-  const [selected, setSelected] = useState([])
+  const [selected, setSelected] = useState(columns.slice())
 
   // todo: consider a ref here
   const toggleAll = () => {
@@ -34,6 +35,7 @@ export default function DataTable({ data, columns, url }: any) {
         >
           {selected.length > 0 ? 'Deselect All' : 'Select All'}
         </button>
+        <DateColumnSelect selected={selected} />
       </div>
       <div
         id="data-table"
