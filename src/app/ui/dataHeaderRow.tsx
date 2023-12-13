@@ -3,6 +3,7 @@ const transformer = require('../lib/util/transformer')
 let selected: string[] = []
 
 // todo: refactor to share state up the tree ina React way
+// todo: investigate using tailwind instead of direct styles
 function handleClick (target: string, e: any ): void {
   const i: number = selected.indexOf(target)
   if (i < 0) {
