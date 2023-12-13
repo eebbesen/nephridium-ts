@@ -41,3 +41,23 @@ describe('truncate', () => {
     expect(transformer.truncate(input)).toEqual(input)
   })
 })
+
+describe('stripParams', () => {
+  it('strips params', () =>{
+    const url = 'https://data.cityofchicago.org/resource/22u3-xenr.json?$limit=5'
+    expect(transformer.stripParams(url)).toEqual('https://data.cityofchicago.org/resource/22u3-xenr.json')
+  })
+
+  it('returns input when nothing to strip', () =>{
+    const url = 'https://data.cityofchicago.org/resource/22u3-xenr.json'
+    expect(transformer.stripParams(url)).toEqual('https://data.cityofchicago.org/resource/22u3-xenr.json')
+  })
+
+  it ('handles undefined input', () =>{
+    expect(transformer.stripParams(undefined)).toEqual('')
+  })
+
+  it ('handles null input', () =>{
+    expect(transformer.stripParams(null)).toEqual('')
+  })
+})
