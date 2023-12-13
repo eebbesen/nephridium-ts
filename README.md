@@ -25,6 +25,7 @@ npm run test
 ```
 
 Use https://www.w3.org/TR/html-aria/#docconformance to map HTMLElements to their ARIA roles.
+https://testing-library.com/docs/queries/about/#byrole has more specific information to React.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

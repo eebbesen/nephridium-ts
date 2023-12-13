@@ -20,11 +20,18 @@ export default function DateColumnSelect({
       id="date-column-select"
       className="col-start-3 col-end-5 rounded-md"
     >
-      <option key={-1} id="option"></option>
+      <option
+        key={-1}
+        id="option"
+        selected={selectedDateColumn.length === 0}
+      ></option>
       {selected.map((c: string) => (
-        <option key={c} value={c} id={`option-${c}`}>{`${transform(
-          c,
-        )}`}</option>
+        <option
+          key={c}
+          value={c}
+          id={`option-${c}`}
+          selected={c === selectedDateColumn}
+        >{`${transform(c)}`}</option>
       ))}
     </select>
   )
