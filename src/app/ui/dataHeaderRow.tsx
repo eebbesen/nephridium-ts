@@ -10,7 +10,8 @@ export default function DataHeaderRow({ columns }: any) {
   return (
     <tr key={keySlug}>
       {columns.map((c: string) => (
-        <th className="pe-1 ps-1" key={`${keySlug}${c}`}>
+        // eslint-disable-next-line react/jsx-key
+        <th className="pe-1 ps-1" >
           {transformer.transform(c)}
         </th>
       ))}
