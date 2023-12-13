@@ -1,3 +1,5 @@
+![workflow](https://github.com/eebbesen/nephridium-ts/actions/workflows/push.yml/badge.svg)
+
 # nephridium-ts
 This is an experimental app to help users build URLs for https://github.com/eebbesen/nephridium.
 
