@@ -26,6 +26,7 @@ export default function Page() {
           workingUrl={workingUrl}
           setWorkingUrl={setWorkingUrl}
         />
+        <hr></hr>
         <LoadingIndicator loadingState={loadingState} />
       </main>
     )
@@ -38,7 +39,7 @@ export default function Page() {
           setWorkingUrl={setWorkingUrl}
         />
         <hr></hr>
-        <DataTable data={data} columns={columns} />
+        <DataTable data={data} columns={columns} url={url} />
       </main>
     )
 }

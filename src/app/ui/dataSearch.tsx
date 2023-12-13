@@ -37,7 +37,7 @@ export default function DataSearch({
             </legend>
             <Vendor vendor={'ArcGIS'} />
             <Vendor vendor={'Socrata'} />
-            <Vendor vendor={'Raw'} />
+            {/* <Vendor vendor={'Raw'} /> */}
           </div>
         </div>
       </fieldset>

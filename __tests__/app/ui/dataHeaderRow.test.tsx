@@ -10,7 +10,7 @@ describe('DataHeaderRow', () => {
   })
 
   it('renders colummns', () => {
-    render(<DataHeaderRow columns={['id', 'address']} />)
+    render(<DataHeaderRow columns={['id', 'address']} selected={[]} />)
 
     const ths = screen.getAllByRole('columnheader')
 

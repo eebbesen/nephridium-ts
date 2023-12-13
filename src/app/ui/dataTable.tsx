@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import DataHeaderRow from './dataHeaderRow'
 import { DataRowMemo } from './dataRow'
+import Output from './output'
 
-export default function DataTable({ data, columns }: any) {
+export default function DataTable({ data, columns, url }: any) {
   const [selected, setSelected] = useState([])
 
   // todo: consider a ref here
@@ -16,6 +17,11 @@ export default function DataTable({ data, columns }: any) {
 
   return (
     <>
+      <div id="output" className="grid gap-2 sm:grid-cols-2 md:grid-cols-9">
+        <div className="col-start-1 col-end-10">
+          <Output columns={columns} selected={selected} url={url} />
+        </div>
+      </div>
       <div
         id="toggle-all-div"
         className="grid gap-2 sm:grid-cols-2 md:grid-cols-9"
