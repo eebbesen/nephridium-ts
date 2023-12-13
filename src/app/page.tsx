@@ -18,28 +18,20 @@ export default function Page() {
     setUrl(workingUrl)
   }
 
-  if (url.length > 0 && loadingState !== loadingStatus.loaded) {
-    return (
-      <main className="mx-auto space-y-5 p-1">
-        <DataSearch
-          handleSubmit={handleSubmit}
-          workingUrl={workingUrl}
-          setWorkingUrl={setWorkingUrl}
-        />
-        <hr></hr>
-        <LoadingIndicator loadingState={loadingState} />
-      </main>
-    )
-  } else
-    return (
-      <main className="mx-auto space-y-5 p-1">
-        <DataSearch
-          handleSubmit={handleSubmit}
-          workingUrl={workingUrl}
-          setWorkingUrl={setWorkingUrl}
-        />
-        <hr></hr>
-        <DataTable data={data} columns={columns} url={url} />
-      </main>
-    )
+  return (
+    <main className="mx-auto space-y-5 p-1">
+      <DataSearch
+        handleSubmit={handleSubmit}
+        workingUrl={workingUrl}
+        setWorkingUrl={setWorkingUrl}
+      />
+      <hr></hr>
+      {url.length > 0 ?
+        (loadingState !== loadingStatus.loaded ?
+          <LoadingIndicator loadingState={loadingState} /> :
+          <DataTable data={data} columns={columns} url={url} />) :
+        <></>
+      }
+    </main>
+  )
 }
