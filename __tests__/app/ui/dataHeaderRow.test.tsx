@@ -2,6 +2,13 @@ import { render, screen } from '@testing-library/react'
 import DataHeaderRow from '../../../src/app/ui/dataHeaderRow'
 import '@testing-library/jest-dom'
 
+let selected = []
+
+function setSelected(slctd: string[]): void {
+  console.log('setSelected called with', slctd)
+  selected = [...slctd]
+}
+
 describe('DataHeaderRow', () => {
   it('renders nothing with no colummns', () => {
     render(<DataHeaderRow columns={[]} />)
@@ -9,13 +16,37 @@ describe('DataHeaderRow', () => {
     expect(() => screen.getAllByRole('columnheader')).toThrow('Unable to find')
   })
 
-  it('renders colummns', () => {
-    render(<DataHeaderRow columns={['id', 'address']} selected={[]} />)
+  it('renders colummns when selected', () => {
+    render(
+      <DataHeaderRow
+        columns={['id', 'address']}
+        selected={['id', 'address']}
+        setSelected={setSelected}
+      />,
+    )
+    const addressHeader = screen.getAllByRole('columnheader')[0]
 
-    const ths = screen.getAllByRole('columnheader')
+    expect(addressHeader.className).toEqual('pe-1 ps-1 bg-black text-white')
 
-    expect(ths.length).toBe(2)
-    expect(ths[0].textContent).toEqual('id')
-    expect(ths[1].textContent).toEqual('address')
+    addressHeader.click()
+
+    expect(addressHeader.className).toEqual('pe-1 ps-1 bg-blue-300 text-black')
+  })
+
+  it('renders colummns when not selected', () => {
+    render(
+      <DataHeaderRow
+        columns={['id', 'address']}
+        selected={[]}
+        setSelected={setSelected}
+      />,
+    )
+
+    const addressHeader = screen.getAllByRole('columnheader')[0]
+    expect(addressHeader.className).toEqual('pe-1 ps-1 bg-blue-300 text-black')
+
+    addressHeader.click()
+
+    expect(addressHeader.className).toEqual('pe-1 ps-1 bg-black text-white')
   })
 })

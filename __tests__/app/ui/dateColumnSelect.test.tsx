@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import DateColumnSelect from '../../../src/app/ui/dateColumnSelect'
 import '@testing-library/jest-dom'
 
@@ -39,5 +39,21 @@ describe('DateColumnSelect', () => {
     expect(select.options[2].text).toBe('date')
     expect(select.options[2].selected).toBe(false)
     expect(select.options[0].selected).toBe(true)
+  })
+
+  it('handles column selection', () => {
+    const setSelectedDateColumnSpy = jest.fn()
+    render(
+      <DateColumnSelect
+        selected={['id', 'date', 'description']}
+        selectedDateColumn={''}
+        setSelectedDateColumn={setSelectedDateColumnSpy}
+      />,
+    )
+
+    const select: HTMLSelectElement = screen.getByRole('combobox')
+    fireEvent.change(select, { target: { value: 'date' } })
+
+    expect(setSelectedDateColumnSpy).toHaveBeenCalledWith('date')
   })
 })

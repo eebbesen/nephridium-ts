@@ -1,10 +1,10 @@
 ![workflow](https://github.com/eebbesen/nephridium-ts/actions/workflows/push.yml/badge.svg)
 
 # nephridium-ts
+
 This is an experimental app to help users build URLs for https://github.com/eebbesen/nephridium.
 
 Functionality is incomplete but it still may be of use for generating the Nephridium URL params.
-
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

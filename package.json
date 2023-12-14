@@ -9,7 +9,7 @@
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "start": "next start",
-    "test": "jest",
+    "test": "jest --coverage",
     "testw": "jest --watch"
   },
   "dependencies": {
