@@ -5,7 +5,7 @@ export default function DataHeaderRow({ columns, selected, setSelected }: any) {
     return
   }
 
-  // todo: refactor to share state up the tree ina React way
+  // todo: refactor to share state up the tree in a React way
   // todo: investigate using tailwind instead of direct styles
   const handleClick = (target: string, e: any): void => {
     const i: number = selected.indexOf(target)
@@ -14,12 +14,7 @@ export default function DataHeaderRow({ columns, selected, setSelected }: any) {
       e.target.classList.replace('text-black', 'text-white')
       e.target.classList.replace('bg-blue-300', 'bg-black')
     } else {
-      // setSelected(selected.toSpliced(i, 1))
-      setSelected(
-        selected.filter((c: string) => {
-          c !== target
-        }),
-      )
+      setSelected(selected.filter((c: string) => c !== target))
       e.target.classList.replace('text-white', 'text-black')
       e.target.classList.replace('bg-black', 'bg-blue-300')
     }

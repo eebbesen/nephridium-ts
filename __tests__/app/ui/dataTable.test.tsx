@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import { act } from 'react-dom/test-utils';
 import DataTable from '../../../src/app/ui/dataTable'
 import '@testing-library/jest-dom'
 
@@ -18,6 +19,9 @@ describe('DataTable', () => {
     },
   ]
 
+  const noId = [...data]
+  noId.forEach(r => delete r.id)
+
   it('renders component', () => {
     render(
       <DataTable
@@ -30,10 +34,50 @@ describe('DataTable', () => {
     expect(rows.length).toBe(3)
   })
 
-  it('displays Deselect All on initial load', () => {
+  it('renders component without ID', () => {
+    render(
+      <DataTable
+        data={noId}
+        columns={['address', 'status', 'description']}
+      />,
+    )
+
+    const rows = screen.getAllByRole('row')
+    expect(rows.length).toBe(3)
+  })
+
+  it('displays Deselect All on initial load and executes', () => {
     render(
       <DataTable
         data={data}
+        columns={['id', 'address', 'status', 'description']}
+      />,
+    )
+    const idRow: HTMLElement = screen.getAllByText('id')[1]
+    const addressRow: HTMLElement = screen.getAllByText('address')[1]
+    const statusRow: HTMLElement = screen.getAllByText('status')[1]
+    const descriptionRow: HTMLElement = screen.getAllByText('description')[1]
+
+    expect(idRow).toHaveClass('bg-black')
+    expect(addressRow).toHaveClass('bg-black')
+    expect(statusRow).toHaveClass('bg-black')
+    expect(descriptionRow).toHaveClass('bg-black')
+
+    const toggleButtonDeselect = screen.getByRole('button', {
+      name: /Deselect/,
+    })
+    act(() => { toggleButtonDeselect.click() });
+
+    expect(idRow).toHaveClass('bg-blue-300')
+    expect(addressRow).toHaveClass('bg-blue-300')
+    expect(statusRow).toHaveClass('bg-blue-300')
+    expect(descriptionRow).toHaveClass('bg-blue-300')
+  })
+
+  it('displays Deselect All on initial load when no ID', () => {
+    render(
+      <DataTable
+        data={noId}
         columns={['id', 'address', 'status', 'description']}
       />,
     )
@@ -41,6 +85,6 @@ describe('DataTable', () => {
     const toggleButtonDeselect = screen.getByRole('button', {
       name: /Deselect/,
     })
-    toggleButtonDeselect.click()
+    act(() => { toggleButtonDeselect.click() });
   })
 })
