@@ -24,7 +24,7 @@ export default function DateColumnSelect({
         key={-1}
         id="option"
         selected={selectedDateColumn.length === 0}
-      ></option>
+      >Select Date Column</option>
       {selected.map((c: string) => (
         <option
           key={c}
