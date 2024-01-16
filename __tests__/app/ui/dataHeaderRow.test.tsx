@@ -18,11 +18,15 @@ describe('DataHeaderRow', () => {
 
   it('renders colummn headers properly when selected', () => {
     render(
-      <DataHeaderRow
-        columns={['id', 'address']}
-        selected={['id', 'address']}
-        setSelected={setSelected}
-      />,
+      <table>
+        <thead>
+          <DataHeaderRow
+            columns={['id', 'address']}
+            selected={['id', 'address']}
+            setSelected={setSelected}
+          />
+        </thead>
+      </table>,
     )
     const addressHeader = screen.getAllByRole('columnheader')[0]
     const idHeader = screen.getAllByRole('columnheader')[1]
@@ -38,11 +42,15 @@ describe('DataHeaderRow', () => {
 
   it('renders colummns when not selected', () => {
     render(
-      <DataHeaderRow
-        columns={['id', 'address']}
-        selected={[]}
-        setSelected={setSelected}
-      />,
+      <table>
+        <thead>
+          <DataHeaderRow
+            columns={['id', 'address']}
+            selected={[]}
+            setSelected={setSelected}
+          />
+        </thead>
+      </table>,
     )
 
     const addressHeader = screen.getAllByRole('columnheader')[0]

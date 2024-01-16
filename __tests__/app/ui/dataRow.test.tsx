@@ -16,10 +16,14 @@ describe('DataRow', () => {
 
   it('renders row', () => {
     render(
-      <DataRow
-        row={{ id: '24', address: '1600 Grand Ave' }}
-        columns={['id', 'address']}
-      />,
+      <table>
+        <thead>
+          <DataRow
+            row={{ id: '24', address: '1600 Grand Ave' }}
+            columns={['id', 'address']}
+          />
+        </thead>
+      </table>,
     )
 
     const row = screen.getByRole('row')
@@ -35,10 +39,14 @@ describe('DataRow', () => {
       'INTERIOR OF BUILDING - NO RESPONSE, UNABLE TO VERFY DETECTORS AND OCCUPANCY.'
 
     render(
-      <DataRow
-        row={{ address: '1600 Grand Ave', geoaddress: obj, description: text }}
-        columns={['id', 'address', 'geoaddress', 'description']}
-      />,
+      <table>
+        <thead>
+          <DataRow
+            row={{ address: '1600 Grand Ave', geoaddress: obj, description: text }}
+            columns={['id', 'address', 'geoaddress', 'description']}
+          />
+        </thead>
+      </table>,
     )
 
     const row = screen.getByRole('row')
