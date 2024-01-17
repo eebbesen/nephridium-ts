@@ -38,9 +38,6 @@ function DataHeaderRowCellSkeleton({ key }: { readonly key: string }) {
 }
 
 function DataRowSkeleton() {
-  const seed: Array<number> = new Array(9)
-  seed.fill(0)
-
   return (
     <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-9 text-xs text-gray-200 mt-2">
       {seed.map((r: any, i: number) => (
