@@ -5,7 +5,6 @@ import '@testing-library/jest-dom'
 let selected = []
 
 function setSelected(slctd: string[]): void {
-  console.log('setSelected called with', slctd)
   selected = [...slctd]
 }
 
