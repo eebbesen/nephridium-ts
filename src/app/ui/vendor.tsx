@@ -1,5 +1,4 @@
-export default function Vendor(props: any) {
-  const vendor: string = props.vendor
+export default function Vendor({vendor}: {vendor: string}) {
 
   return (
     <div className="items-center">

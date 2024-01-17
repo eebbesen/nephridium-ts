@@ -7,7 +7,7 @@ export default function DateColumnSelect({
 }: Readonly<{
   selected: string[]
   selectedDateColumn: string
-  setSelectedDateColumn: Function
+  setSelectedDateColumn: (val: string) => void
 }>) {
   function handleDateColumnChange(event: any) {
     const selected: string = event.target.selectedOptions[0].id

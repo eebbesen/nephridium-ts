@@ -27,6 +27,7 @@ describe('DataTable', () => {
       <DataTable
         data={data}
         columns={['id', 'address', 'status', 'description']}
+        url={''}
       />,
     )
 
@@ -44,6 +45,7 @@ describe('DataTable', () => {
       <DataTable
         data={noId}
         columns={['address', 'status', 'description']}
+        url={''}
       />,
     )
 
@@ -61,6 +63,7 @@ describe('DataTable', () => {
       <DataTable
         data={data}
         columns={['id', 'address', 'status', 'description']}
+        url={''}
       />,
     )
     const idRow: HTMLElement = screen.getAllByText('id')[1]
