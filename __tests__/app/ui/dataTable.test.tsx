@@ -32,6 +32,11 @@ describe('DataTable', () => {
 
     const rows = screen.getAllByRole('row')
     expect(rows.length).toBe(3)
+
+    const toggleButtonDeselect = screen.getByRole('button', {
+      name: /Deselect/,
+    })
+    act(() => { toggleButtonDeselect.click() });
   })
 
   it('renders component without ID', () => {
@@ -44,9 +49,14 @@ describe('DataTable', () => {
 
     const rows = screen.getAllByRole('row')
     expect(rows.length).toBe(3)
+
+    const toggleButtonDeselect = screen.getByRole('button', {
+      name: /Deselect/,
+    })
+    act(() => { toggleButtonDeselect.click() });
   })
 
-  it('displays Deselect All on initial load and executes', () => {
+  it('Des/Select All on initial load and executes appropriately', () => {
     render(
       <DataTable
         data={data}
@@ -63,6 +73,7 @@ describe('DataTable', () => {
     expect(statusRow).toHaveClass('bg-black')
     expect(descriptionRow).toHaveClass('bg-black')
 
+    // Deselect All
     const toggleButtonDeselect = screen.getByRole('button', {
       name: /Deselect/,
     })
@@ -72,19 +83,16 @@ describe('DataTable', () => {
     expect(addressRow).toHaveClass('bg-blue-300')
     expect(statusRow).toHaveClass('bg-blue-300')
     expect(descriptionRow).toHaveClass('bg-blue-300')
-  })
 
-  it('displays Deselect All on initial load when no ID', () => {
-    render(
-      <DataTable
-        data={noId}
-        columns={['id', 'address', 'status', 'description']}
-      />,
-    )
-
-    const toggleButtonDeselect = screen.getByRole('button', {
-      name: /Deselect/,
+    // Select All
+    const toggleButtonSelect = screen.getByRole('button', {
+      name: /Select/,
     })
-    act(() => { toggleButtonDeselect.click() });
+    act(() => { toggleButtonSelect.click() });
+
+    expect(idRow).toHaveClass('bg-black')
+    expect(addressRow).toHaveClass('bg-black')
+    expect(statusRow).toHaveClass('bg-black')
+    expect(descriptionRow).toHaveClass('bg-black')
   })
 })
