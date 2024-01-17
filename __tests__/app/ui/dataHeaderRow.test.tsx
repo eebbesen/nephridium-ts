@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import DataHeaderRow from '../../../src/app/ui/dataHeaderRow'
-import { addDateColumnOption } from '../../../src/app/ui/dataHeaderRow'
+import DataHeaderRow, { addDateColumnOption } from '../../../src/app/ui/dataHeaderRow'
 import '@testing-library/jest-dom'
 
 let selected = []
