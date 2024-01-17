@@ -25,15 +25,15 @@ function DataHeaderRowSkeleton() {
   return (
     <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-9 text-xs text-gray-300">
       {seed.map((r: any, i: number) => (
-        <DataHeaderRowCellSkeleton key={`${i}-h`} />
+        <DataHeaderRowCellSkeleton key={`${i}-h`} id={`${i}-h`} />
       ))}
     </div>
   )
 }
 
-function DataHeaderRowCellSkeleton({ key }: { readonly key: string }) {
+function DataHeaderRowCellSkeleton({ id }: { readonly id: string }) {
   return (
-    <div key={key} className="bg-gray-300 mr-1">HEADER</div>
+    <div id={id} className="bg-gray-300 mr-1">HEADER</div>
   )
 }
 
@@ -41,15 +41,15 @@ function DataRowSkeleton() {
   return (
     <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-9 text-xs text-gray-200 mt-2">
       {seed.map((r: any, i: number) => (
-        <DataRowCellSkeleton key={`${i}-h`} />
+        <DataRowCellSkeleton key={`${i}-h`} id={`${i}-h`} />
       ))}
     </div>
   )
 }
 
-function DataRowCellSkeleton({ key }: { readonly key: string }) {
+function DataRowCellSkeleton({ id }: { readonly id: string }) {
   return (
-    <div key={key} className="bg-gray-200 mr-1">DC</div>
+    <div id={id} className="bg-gray-200 mr-1">DC</div>
   )
 }
 
@@ -73,8 +73,9 @@ export function DataSkeleton() {
     <div
       className={`${shimmer} relative overflow-hidden rounded-md bg-gray-100 p-2 shadow-sm`}
     >
-    <DataSourceSkeletion />
-    <DataTableSkeleton />
+      <p className="text-white overflow-auto text-sm mt-20">Aplaceholder</p>
+      <DataSourceSkeletion />
+      <DataTableSkeleton />
     </div>
   )
 }
