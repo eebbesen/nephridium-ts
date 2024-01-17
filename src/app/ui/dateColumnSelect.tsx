@@ -4,11 +4,11 @@ export default function DateColumnSelect({
   selected,
   selectedDateColumn,
   setSelectedDateColumn,
-}: {
+}: Readonly<{
   selected: string[]
   selectedDateColumn: string
   setSelectedDateColumn: Function
-}) {
+}>) {
   function handleDateColumnChange(event: any) {
     const selected: string = event.target.selectedOptions[0].id
     setSelectedDateColumn(selected.split('option-')[1])
@@ -17,20 +17,19 @@ export default function DateColumnSelect({
   return (
     <select
       onChange={(e) => handleDateColumnChange(e)}
+      value={selectedDateColumn}
       id="date-column-select"
       className="col-start-3 col-end-5 rounded-md"
     >
       <option
         key={-1}
-        id="option"
-        selected={selectedDateColumn.length === 0}
+        value=""
       >Select Date Column</option>
       {selected.map((c: string) => (
         <option
           key={c}
           value={c}
           id={`option-${c}`}
-          selected={c === selectedDateColumn}
         >{`${transform(c)}`}</option>
       ))}
     </select>
