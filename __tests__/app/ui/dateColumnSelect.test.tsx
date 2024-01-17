@@ -3,9 +3,7 @@ import DateColumnSelect from '../../../src/app/ui/dateColumnSelect'
 import '@testing-library/jest-dom'
 
 describe('DateColumnSelect', () => {
-  function setSelectedDateColumn(dateColumn: string): void {
-    console.log('setSelectedDateColumn called')
-  }
+  function setSelectedDateColumn(dateColumn: string): void {}
 
   it('renders select with non-default selection', () => {
     render(

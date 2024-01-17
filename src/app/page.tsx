@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import LoadingIndicator from './ui/loadingIndicator'
 import { loadingStatus } from './ui/loadingStatus'
+import { DataSkeleton } from '@/app/ui/skeletons';
 import useDataRequests from './lib/hooks/useDataRequests'
 import DataSearch from './ui/dataSearch'
 import DataTable from './ui/dataTable'
@@ -28,7 +29,7 @@ export default function Page() {
       <hr></hr>
       {url.length > 0 ? (
         loadingState !== loadingStatus.loaded ? (
-          <LoadingIndicator loadingState={loadingState} />
+          <DataSkeleton />
         ) : (
           <DataTable data={data} columns={columns} url={url} />
         )

@@ -4,12 +4,9 @@ import '@testing-library/jest-dom'
 
 let workingUrl = ''
 
-function handleSubmit(): void {
-  console.log('handleSubmit called')
-}
+function handleSubmit(): void {}
 
 function setWorkingUrl(val: string): void {
-  console.log('setWorkingUrl called')
   workingUrl = val
 }
 
