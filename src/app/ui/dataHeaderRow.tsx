@@ -9,7 +9,8 @@ export function addDateColumnOption(added: string, selected: string[], columns: 
   return spliced
 }
 
-export default function DataHeaderRow({ columns, selected, setSelected }: any) {
+export default function DataHeaderRow({ columns, selected, setSelected }:
+  {columns: string[], selected: string[], setSelected: (val: string[]) => void}) {
   if (columns.length === 0) {
     return
   }

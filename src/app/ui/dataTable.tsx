@@ -4,7 +4,7 @@ import { DataRowMemo } from './dataRow'
 import Output from './output'
 import DateColumnSelect from './dateColumnSelect'
 
-export default function DataTable({ data, columns, url }: any) {
+export default function DataTable({ data, columns, url }: {data: any, columns: string[], url: string}) {
   const [selected, setSelected] = useState(columns.slice())
   const [selectedDateColumn, setSelectedDateColumn] = useState('')
 

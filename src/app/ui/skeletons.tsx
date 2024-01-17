@@ -24,7 +24,7 @@ function DataSourceSkeletion() {
 function DataHeaderRowSkeleton() {
   return (
     <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-9 text-xs text-gray-300">
-      {seed.map((r: any, i: number) => (
+      {seed.map((r: number, i: number) => (
         <DataHeaderRowCellSkeleton key={`${i}-h`} id={`${i}-h`} />
       ))}
     </div>
@@ -40,7 +40,7 @@ function DataHeaderRowCellSkeleton({ id }: { readonly id: string }) {
 function DataRowSkeleton() {
   return (
     <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-9 text-xs text-gray-200 mt-2">
-      {seed.map((r: any, i: number) => (
+      {seed.map((r: number, i: number) => (
         <DataRowCellSkeleton key={`${i}-h`} id={`${i}-h`} />
       ))}
     </div>
@@ -59,7 +59,7 @@ function DataTableSkeleton() {
       <DataHeaderRowSkeleton />
 
       {
-        seed.map((r: any, i: number) => (
+        seed.map((r: number, i: number) => (
           <DataRowSkeleton key={`${i}-dr`} />
         ))
       }

@@ -31,7 +31,7 @@ describe('DataHeaderRow', () => {
   })
 
   it('renders nothing with no colummns', () => {
-    render(<DataHeaderRow columns={[]} />)
+    render(<DataHeaderRow columns={[]} selected={[]} setSelected={() => {}} />)
 
     expect(() => screen.getAllByRole('columnheader')).toThrow('Unable to find')
   })
