@@ -73,7 +73,7 @@ export function DataSkeleton() {
     <div
       className={`${shimmer} relative overflow-hidden rounded-md bg-gray-100 p-2 shadow-sm`}
     >
-      <p className="text-white overflow-auto text-sm mt-20">Aplaceholder</p>
+      <p className="text-white overflow-auto text-sm mt-5">Aplaceholder</p>
       <DataSourceSkeletion />
       <DataTableSkeleton />
     </div>
