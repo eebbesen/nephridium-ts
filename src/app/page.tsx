@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import LoadingIndicator from './ui/loadingIndicator'
 import { loadingStatus } from './ui/loadingStatus'
 import { DataSkeleton } from '@/app/ui/skeletons';
 import useDataRequests from './lib/hooks/useDataRequests'
