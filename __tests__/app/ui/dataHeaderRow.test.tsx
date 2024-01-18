@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import DataHeaderRow, { addDateColumnOption } from '../../../src/app/ui/dataHeaderRow'
+import DataHeaderRow, {
+  addDateColumnOption,
+} from '../../../src/app/ui/dataHeaderRow'
 import '@testing-library/jest-dom'
 
 let selected = []
@@ -15,7 +17,11 @@ describe('DataHeaderRow', () => {
       const selected = ['id', 'date']
       const added = 'address'
 
-      expect(addDateColumnOption(added, selected, columns)).toEqual(['id', 'address', 'date'])
+      expect(addDateColumnOption(added, selected, columns)).toEqual([
+        'id',
+        'address',
+        'date',
+      ])
       expect(selected.length).toEqual(2)
     })
 
@@ -33,7 +39,10 @@ describe('DataHeaderRow', () => {
       const selected = ['assessor']
       const added = 'date'
 
-      expect(addDateColumnOption(added, selected, columns)).toEqual(['date', 'assessor'])
+      expect(addDateColumnOption(added, selected, columns)).toEqual([
+        'date',
+        'assessor',
+      ])
       expect(selected.length).toEqual(1)
     })
 
@@ -42,7 +51,10 @@ describe('DataHeaderRow', () => {
       const selected = ['assessor']
       const added = 'code'
 
-      expect(addDateColumnOption(added, selected, columns)).toEqual(['assessor', 'code'])
+      expect(addDateColumnOption(added, selected, columns)).toEqual([
+        'assessor',
+        'code',
+      ])
       expect(selected.length).toEqual(1)
     })
 
@@ -51,7 +63,8 @@ describe('DataHeaderRow', () => {
       const selected = ['id']
       const added = 'slug'
 
-      expect(addDateColumnOption(added, selected, columns)).toEqual(['id'])    })
+      expect(addDateColumnOption(added, selected, columns)).toEqual(['id'])
+    })
   })
 
   it('renders nothing with no colummns', () => {

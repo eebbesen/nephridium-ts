@@ -8,7 +8,15 @@ export function createKey(row: any, i: number): string | number {
   return row['id'] ? row['id'] : Date.now() * i
 }
 
-export default function DataTable({ data, columns, url }: {data: any, columns: string[], url: string}) {
+export default function DataTable({
+  data,
+  columns,
+  url,
+}: {
+  data: any
+  columns: string[]
+  url: string
+}) {
   const [selected, setSelected] = useState(columns.slice())
   const [selectedDateColumn, setSelectedDateColumn] = useState('')
 

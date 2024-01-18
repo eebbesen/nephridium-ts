@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import { act } from 'react-dom/test-utils';
-import DataTable, { createKey }  from '../../../src/app/ui/dataTable'
+import { act } from 'react-dom/test-utils'
+import DataTable, { createKey } from '../../../src/app/ui/dataTable'
 import '@testing-library/jest-dom'
 
 describe('DataTable', () => {
@@ -20,27 +20,27 @@ describe('DataTable', () => {
   ]
 
   const noId = [...data]
-  noId.forEach(r => delete r.id)
+  noId.forEach((r) => delete r.id)
 
   describe('createKey', () => {
     it('creates key with id', () => {
-      const row = {id: 1, address: '123 Main St'}
+      const row = { id: 1, address: '123 Main St' }
 
       expect(createKey(row, 22)).toEqual(1)
     })
 
     it('creates key with date when no id', () => {
-      const row = {address: '123 Main St'}
+      const row = { address: '123 Main St' }
 
       // 170553082 7661
 
       const now = Date.now() * 22
-      const slug = now.toString().substring(0,9)
+      const slug = now.toString().substring(0, 9)
 
       const ret = createKey(row, 22)
       const key = ret.toString()
 
-      expect(key.substring(0,9)).toEqual(slug)
+      expect(key.substring(0, 9)).toEqual(slug)
     })
   })
 
@@ -59,7 +59,9 @@ describe('DataTable', () => {
     const toggleButtonDeselect = screen.getByRole('button', {
       name: /Deselect/,
     })
-    act(() => { toggleButtonDeselect.click() });
+    act(() => {
+      toggleButtonDeselect.click()
+    })
   })
 
   it('renders component without ID', () => {
@@ -77,7 +79,9 @@ describe('DataTable', () => {
     const toggleButtonDeselect = screen.getByRole('button', {
       name: /Deselect/,
     })
-    act(() => { toggleButtonDeselect.click() });
+    act(() => {
+      toggleButtonDeselect.click()
+    })
   })
 
   it('Des/Select All on initial load and executes appropriately', () => {
@@ -102,7 +106,9 @@ describe('DataTable', () => {
     const toggleButtonDeselect = screen.getByRole('button', {
       name: /Deselect/,
     })
-    act(() => { toggleButtonDeselect.click() });
+    act(() => {
+      toggleButtonDeselect.click()
+    })
 
     expect(idRow).toHaveClass('bg-blue-300')
     expect(addressRow).toHaveClass('bg-blue-300')
@@ -113,7 +119,9 @@ describe('DataTable', () => {
     const toggleButtonSelect = screen.getByRole('button', {
       name: /Select/,
     })
-    act(() => { toggleButtonSelect.click() });
+    act(() => {
+      toggleButtonSelect.click()
+    })
 
     expect(idRow).toHaveClass('bg-black')
     expect(addressRow).toHaveClass('bg-black')

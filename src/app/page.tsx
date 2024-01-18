@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { loadingStatus } from './ui/loadingStatus'
-import { DataSkeleton } from '@/app/ui/skeletons';
+import { DataSkeleton } from '@/app/ui/skeletons'
 import useDataRequests from './lib/hooks/useDataRequests'
 import DataSearch from './ui/dataSearch'
 import DataTable from './ui/dataTable'

@@ -1,5 +1,4 @@
-export default function Vendor({vendor}: {vendor: string}) {
-
+export default function Vendor({ vendor }: { vendor: string }) {
   return (
     <div className="items-center">
       <input

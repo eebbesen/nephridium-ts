@@ -7,23 +7,22 @@ const seed: Array<number> = new Array(9).fill(0)
 function DataSourceSkeletion() {
   return (
     <div
-        id="search-skeleton"
-        className="grid gap-2 sm:grid-cols-2 md:grid-cols-9"
-      >
-        <button
-          className="col-start-1 col-end-2 rounded-md bg-blue-500 px-4 py-2 text-white"
-          disabled={true}
-        >
-        </button>
+      id="search-skeleton"
+      className="grid gap-2 sm:grid-cols-2 md:grid-cols-9"
+    >
+      <button
+        className="col-start-1 col-end-2 rounded-md bg-blue-500 px-4 py-2 text-white"
+        disabled={true}
+      ></button>
 
-        <select className="col-start-3 col-end-5 rounded-md bg-inherit"></select>
-      </div>
+      <select className="col-start-3 col-end-5 rounded-md bg-inherit"></select>
+    </div>
   )
 }
 
 function DataHeaderRowSkeleton() {
   return (
-    <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-9 text-xs text-gray-300">
+    <div className="grid gap-2 text-xs text-gray-300 sm:grid-cols-2 md:grid-cols-9">
       {seed.map((r: number, i: number) => (
         <DataHeaderRowCellSkeleton key={`${i}-h`} id={`${i}-h`} />
       ))}
@@ -33,13 +32,15 @@ function DataHeaderRowSkeleton() {
 
 function DataHeaderRowCellSkeleton({ id }: { readonly id: string }) {
   return (
-    <div id={id} className="bg-gray-300 mr-1">HEADER</div>
+    <div id={id} className="mr-1 bg-gray-300">
+      HEADER
+    </div>
   )
 }
 
 function DataRowSkeleton() {
   return (
-    <div className="grid gap-2 sm:grid-cols-2 md:grid-cols-9 text-xs text-gray-200 mt-2">
+    <div className="mt-2 grid gap-2 text-xs text-gray-200 sm:grid-cols-2 md:grid-cols-9">
       {seed.map((r: number, i: number) => (
         <DataRowCellSkeleton key={`${i}-h`} id={`${i}-h`} />
       ))}
@@ -49,7 +50,9 @@ function DataRowSkeleton() {
 
 function DataRowCellSkeleton({ id }: { readonly id: string }) {
   return (
-    <div id={id} className="bg-gray-200 mr-1">DC</div>
+    <div id={id} className="mr-1 bg-gray-200">
+      DC
+    </div>
   )
 }
 
@@ -58,12 +61,9 @@ function DataTableSkeleton() {
     <div id="table-skeleton" className="mt-3">
       <DataHeaderRowSkeleton />
 
-      {
-        seed.map((r: number, i: number) => (
-          <DataRowSkeleton key={`${i}-dr`} />
-        ))
-      }
-
+      {seed.map((r: number, i: number) => (
+        <DataRowSkeleton key={`${i}-dr`} />
+      ))}
     </div>
   )
 }
@@ -73,7 +73,7 @@ export function DataSkeleton() {
     <div
       className={`${shimmer} relative overflow-hidden rounded-md bg-gray-100 p-2 shadow-sm`}
     >
-      <p className="text-white overflow-auto text-sm mt-5">Aplaceholder</p>
+      <p className="mt-5 overflow-auto text-sm text-white">Aplaceholder</p>
       <DataSourceSkeletion />
       <DataTableSkeleton />
     </div>
