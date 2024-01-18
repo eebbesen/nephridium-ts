@@ -4,7 +4,11 @@ import { DataRowMemo } from './dataRow'
 import Output from './output'
 import DateColumnSelect from './dateColumnSelect'
 
-export default function DataTable({ data, columns, url }: any) {
+export function createKey(row: any, i: number): string | number {
+  return row['id'] ? row['id'] : Date.now() * i
+}
+
+export default function DataTable({ data, columns, url }: {data: any, columns: string[], url: string}) {
   const [selected, setSelected] = useState(columns.slice())
   const [selectedDateColumn, setSelectedDateColumn] = useState('')
 
@@ -62,7 +66,7 @@ export default function DataTable({ data, columns, url }: any) {
           <tbody className="align-text-top text-xs">
             {data.map((r: any, i: number) => (
               <DataRowMemo
-                key={r['id'] ? r['id'] : Date.now() * i}
+                key={createKey(r, i)}
                 row={r}
                 data={data}
                 columns={columns}

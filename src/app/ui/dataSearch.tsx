@@ -4,7 +4,9 @@ export default function DataSearch({
   handleSubmit,
   workingUrl,
   setWorkingUrl,
-}: any) {
+}: { handleSubmit: () => void
+     workingUrl: string
+     setWorkingUrl: (val: string) => void }) {
   return (
     <div id="search-components" className="space-y-3">
       <div id="search-url" className="grid gap-2 sm:grid-cols-2 md:grid-cols-9">

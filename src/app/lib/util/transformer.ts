@@ -4,7 +4,7 @@ export const transform = (target: string): string => {
   return target.replaceAll(CONVERTABLES, ' ')
 }
 
-export const cleaner = (input: any) => {
+export const cleaner = (input: string) => {
   if (null === input || undefined === input) {
     return ''
   }

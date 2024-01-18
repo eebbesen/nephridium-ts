@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { act } from 'react-dom/test-utils';
-import DataTable from '../../../src/app/ui/dataTable'
+import DataTable, { createKey }  from '../../../src/app/ui/dataTable'
 import '@testing-library/jest-dom'
 
 describe('DataTable', () => {
@@ -22,11 +22,34 @@ describe('DataTable', () => {
   const noId = [...data]
   noId.forEach(r => delete r.id)
 
+  describe('createKey', () => {
+    it('creates key with id', () => {
+      const row = {id: 1, address: '123 Main St'}
+
+      expect(createKey(row, 22)).toEqual(1)
+    })
+
+    it('creates key with date when no id', () => {
+      const row = {address: '123 Main St'}
+
+      // 170553082 7661
+
+      const now = Date.now() * 22
+      const slug = now.toString().substring(0,9)
+
+      const ret = createKey(row, 22)
+      const key = ret.toString()
+
+      expect(key.substring(0,9)).toEqual(slug)
+    })
+  })
+
   it('renders component', () => {
     render(
       <DataTable
         data={data}
         columns={['id', 'address', 'status', 'description']}
+        url={''}
       />,
     )
 
@@ -44,6 +67,7 @@ describe('DataTable', () => {
       <DataTable
         data={noId}
         columns={['address', 'status', 'description']}
+        url={''}
       />,
     )
 
@@ -61,6 +85,7 @@ describe('DataTable', () => {
       <DataTable
         data={data}
         columns={['id', 'address', 'status', 'description']}
+        url={''}
       />,
     )
     const idRow: HTMLElement = screen.getAllByText('id')[1]

@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import DataHeaderRow from '../../../src/app/ui/dataHeaderRow'
-import { addDateColumnOption } from '../../../src/app/ui/dataHeaderRow'
+import DataHeaderRow, { addDateColumnOption } from '../../../src/app/ui/dataHeaderRow'
 import '@testing-library/jest-dom'
 
 let selected = []
@@ -56,7 +55,7 @@ describe('DataHeaderRow', () => {
   })
 
   it('renders nothing with no colummns', () => {
-    render(<DataHeaderRow columns={[]} />)
+    render(<DataHeaderRow columns={[]} selected={[]} setSelected={() => {}} />)
 
     expect(() => screen.getAllByRole('columnheader')).toThrow('Unable to find')
   })
