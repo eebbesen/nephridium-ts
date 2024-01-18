@@ -42,7 +42,11 @@ describe('DataRow', () => {
       <table>
         <thead>
           <DataRow
-            row={{ address: '1600 Grand Ave', geoaddress: obj, description: text }}
+            row={{
+              address: '1600 Grand Ave',
+              geoaddress: obj,
+              description: text,
+            }}
             columns={['id', 'address', 'geoaddress', 'description']}
           />
         </thead>
