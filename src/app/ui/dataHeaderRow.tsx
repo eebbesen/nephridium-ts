@@ -2,11 +2,26 @@ const transformer = require('../lib/util/transformer')
 
 // place the added value back in the dropdown at the appropriate index
 export function addDateColumnOption(added: string, selected: string[], columns: string[]): string[] {
-  const i: number = columns.indexOf(added)
-  let spliced = [...selected]
-  spliced.splice(i, 0, added)
+  const i = columns.indexOf(added)
 
-  return spliced
+  if (i < 0) {
+    return selected
+  }
+
+  const after = columns.slice(i + 1)
+
+  if (after.length === 0 || selected.length === 0) {
+    return [...selected, added]
+  }
+
+  for (let x = 0; x < after.length; x++) {
+    const j = selected.indexOf(after[x])
+    if (j > -1) {
+      return [...selected.slice(0, j), added, ...selected.slice(j)]
+    }
+  }
+
+  return []
 }
 
 export default function DataHeaderRow({ columns, selected, setSelected }:

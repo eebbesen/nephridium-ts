@@ -27,6 +27,31 @@ describe('DataHeaderRow', () => {
       expect(addDateColumnOption(added, selected, columns)).toEqual(['address'])
       expect(selected.length).toEqual(0)
     })
+
+    it('adds value correctly when multiple not shown', () => {
+      const columns = ['id', 'address', 'date', 'assessor', 'code']
+      const selected = ['assessor']
+      const added = 'date'
+
+      expect(addDateColumnOption(added, selected, columns)).toEqual(['date', 'assessor'])
+      expect(selected.length).toEqual(1)
+    })
+
+    it('adds value correctly when added is last', () => {
+      const columns = ['id', 'address', 'date', 'assessor', 'code']
+      const selected = ['assessor']
+      const added = 'code'
+
+      expect(addDateColumnOption(added, selected, columns)).toEqual(['assessor', 'code'])
+      expect(selected.length).toEqual(1)
+    })
+
+    it('ignores value that does not exist in columns', () => {
+      const columns = ['id', 'address', 'date', 'assessor', 'code']
+      const selected = ['id']
+      const added = 'slug'
+
+      expect(addDateColumnOption(added, selected, columns)).toEqual(['id'])    })
   })
 
   it('renders nothing with no colummns', () => {
