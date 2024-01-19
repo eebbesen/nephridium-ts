@@ -14,18 +14,16 @@ export function addDateColumnOption(
 
   const after = columns.slice(i + 1)
 
-  if (after.length === 0 || selected.length === 0) {
-    return [...selected, added]
-  }
-
-  for (let x = 0; x < after.length; x++) {
-    const j = selected.indexOf(after[x])
-    if (j > -1) {
-      return [...selected.slice(0, j), added, ...selected.slice(j)]
+  if (after.length !== 0 && selected.length !== 0) {
+    for (let x = 0; x < after.length; x++) {
+      const j = selected.indexOf(after[x])
+      if (j > -1) {
+        return [...selected.slice(0, j), added, ...selected.slice(j)]
+      }
     }
   }
 
-  return []
+  return [...selected, added]
 }
 
 export default function DataHeaderRow({
