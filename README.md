@@ -1,5 +1,7 @@
 ![workflow](https://github.com/eebbesen/nephridium-ts/actions/workflows/push.yml/badge.svg)
 
+Try it at https://nephridium-ts.vercel.app/
+
 # nephridium-ts
 
 This is an experimental app to help users build URLs for https://github.com/eebbesen/nephridium.
