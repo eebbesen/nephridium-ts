@@ -19,7 +19,7 @@ export default function useGetRequst(url: string) {
         return data
       } catch (error) {
         setLoadingState(loadingStatus.hasErrored)
-        console.log(error, url)
+        console.log(error, 'URL', url)
       }
     },
     [url],
