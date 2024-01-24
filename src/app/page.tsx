@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { loadingStatus } from './ui/loadingStatus'
+import { identifySource, SourceTypes } from './lib/util/helper'
+import { fixURL } from './lib/util/arcgisHelper'
 import { DataSkeleton } from '@/app/ui/skeletons'
 import useDataRequests from './lib/hooks/useDataRequests'
 import DataSearch from './ui/dataSearch'
@@ -15,7 +17,10 @@ export default function Page() {
   const columns = findMaximumKeys(data)
 
   function handleSubmit() {
-    setUrl(workingUrl)
+    const sourceType = identifySource(workingUrl)
+    const usableUrl =
+      sourceType === SourceTypes.ArcGIS ? fixURL(workingUrl) : workingUrl
+    setUrl(usableUrl)
   }
 
   return (
