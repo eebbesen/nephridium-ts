@@ -40,6 +40,10 @@ describe('truncate', () => {
     const input: string = text.substring(0, 72)
     expect(transformer.truncate(input)).toEqual(input)
   })
+
+  it('returns numbers without truncation', () => {
+    expect(transformer.truncate(42)).toEqual(42)
+  })
 })
 
 describe('stripParams', () => {

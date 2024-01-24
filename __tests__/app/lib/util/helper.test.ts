@@ -12,3 +12,16 @@ describe('findMostKeys', () => {
     expect(helper.findMaximumKeys([])).toEqual([])
   })
 })
+
+describe('identifySource', () => {
+  it('identifies ArcGIS', () => {
+    const url =
+      'https://services.arcgis.com/zzzzz/arcgis/rest/services/311/FeatureServer/0/query'
+    expect(helper.identifySource(url)).toEqual(helper.SourceTypes.ArcGIS)
+  })
+
+  it('identifies others', () => {
+    const url = 'https://dev.socrata.com/foundry/data.state.gov/aabc-j1i2'
+    expect(helper.identifySource(url)).toEqual(helper.SourceTypes.Other)
+  })
+})

@@ -16,7 +16,7 @@ describe('Output', () => {
     const urlFragment = screen.getByText(/domain.biz/).textContent
 
     expect(urlFragment).toEqual(
-      '&time_column=date&to_remove=address&url=https://some.domain.biz.json',
+      '&time_column=date&to_remove=address&url=https://some.domain.biz.json?$limit=3',
     )
   })
 
@@ -33,7 +33,7 @@ describe('Output', () => {
     const urlFragment = screen.getByText(/domain.biz/).textContent
 
     expect(urlFragment).toEqual(
-      '&to_remove=address&url=https://some.domain.biz.json',
+      '&to_remove=address&url=https://some.domain.biz.json?$limit=3',
     )
   })
 
@@ -50,7 +50,7 @@ describe('Output', () => {
     const urlFragment = screen.getByText(/domain.biz/).textContent
 
     expect(urlFragment).toEqual(
-      '&time_column=date&url=https://some.domain.biz.json',
+      '&time_column=date&url=https://some.domain.biz.json?$limit=3',
     )
   })
 })
