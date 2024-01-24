@@ -19,3 +19,7 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+.skeleton-cell {
+  line-height: 2.6rem;
+}
