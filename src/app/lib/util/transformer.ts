@@ -18,13 +18,17 @@ export const cleaner = (input: string) => {
   return `*${type}*`
 }
 
-export const truncate = (target: string): string => {
-  let ret: string = target.substring(0, 73)
-  if (ret.length < target.length) {
-    ret = `${ret}...`
+export const truncate = (target: string | number): string | number => {
+  if (typeof target === 'string') {
+    let ret: string = target.substring(0, 73)
+    if (ret.length < target.length) {
+      ret = `${ret}...`
+    }
+
+    return ret
   }
 
-  return ret
+  return target
 }
 
 export const stripParams = (target: string): string => {
