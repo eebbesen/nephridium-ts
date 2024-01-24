@@ -35,8 +35,7 @@ export default function DataSearch({
       </div>
       <fieldset id="search-source">
         <div>
-          <div className="grid justify-center sm:grid-cols-4 lg:grid-cols-9">
-          </div>
+          <div className="grid justify-center sm:grid-cols-4 lg:grid-cols-9"></div>
         </div>
       </fieldset>
     </div>
