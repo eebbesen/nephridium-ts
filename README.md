@@ -1,7 +1,5 @@
 ![workflow](https://github.com/eebbesen/nephridium-ts/actions/workflows/push.yml/badge.svg)
 
-Try it at https://nephridium-ts.vercel.app/. You can use https://data.cityofchicago.org/resource/22u3-xenr.json as a test URL if you don't have your own.
-
 # nephridium-ts
 
 This is an experimental app to help users build URLs for https://github.com/eebbesen/nephridium.
@@ -11,6 +9,8 @@ Functionality is incomplete but it still may be of use for generating the Nephri
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 Favicon from https://commons.wikimedia.org/wiki/File:Oversimplification_Fallacy_Icon.png
+
+Try it out at https://nephridium-ts.vercel.app/! You can use https://data.cityofchicago.org/resource/22u3-xenr.json as a test URL if you don't have your own.
 
 ## Getting Started
 
@@ -26,19 +26,13 @@ pnpm dev
 bun dev
 ```
 
-## Test
-
-```bash
-npm run test
-```
-
 Use https://www.w3.org/TR/html-aria/#docconformance to map HTMLElements to their ARIA roles.
 https://testing-library.com/docs/queries/about/#byrole has more specific information to React.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Test
+Coverage stats will print to the console.
+```bash
+npm run test
+```
