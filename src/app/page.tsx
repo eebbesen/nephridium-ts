@@ -23,6 +23,17 @@ export default function Page() {
     setUrl(usableUrl)
   }
 
+  let dataComponent
+  if (url.length > 0) {
+    if (loadingState !== loadingStatus.loaded) {
+      dataComponent = <DataSkeleton />
+    } else {
+      dataComponent = <DataTable data={data} columns={columns} url={url} />
+    }
+  } else {
+    <></>
+  }
+
   return (
     <main className="mx-auto space-y-5 p-1">
       <DataSearch
@@ -31,15 +42,7 @@ export default function Page() {
         setWorkingUrl={setWorkingUrl}
       />
       <hr></hr>
-      {url.length > 0 ? (
-        loadingState !== loadingStatus.loaded ? (
-          <DataSkeleton />
-        ) : (
-          <DataTable data={data} columns={columns} url={url} />
-        )
-      ) : (
-        <></>
-      )}
+      {dataComponent}
     </main>
   )
 }

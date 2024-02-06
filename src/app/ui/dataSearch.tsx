@@ -1,14 +1,12 @@
-import Vendor from './vendor'
-
 export default function DataSearch({
   handleSubmit,
   workingUrl,
   setWorkingUrl,
-}: {
+}: Readonly<{
   handleSubmit: () => void
   workingUrl: string
   setWorkingUrl: (val: string) => void
-}) {
+}>) {
   return (
     <div id="search-components">
       <div id="search-url" className="grid gap-2 sm:grid-cols-2 md:grid-cols-9">
