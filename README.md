@@ -32,7 +32,9 @@ https://testing-library.com/docs/queries/about/#byrole has more specific informa
 Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
 
 ## Test
+
 Coverage stats will print to the console.
+
 ```bash
 npm run test
 ```
